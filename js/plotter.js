@@ -59,7 +59,6 @@ function candleSeriesSetData(candleSeries, records) {
 
 function getCandleSeriesConfig(divId) {
   let chart = LightweightCharts.createChart(divId, {
-    height: 800,
     layout: {
       backgroundColor: '#1E2937',
       textColor: '#565674',

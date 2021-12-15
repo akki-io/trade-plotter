@@ -1,88 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Simple Trade Plotter</title>
-	<link href="./css/spin.css"/>
-	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
-</head>
-<body class="bg-gray-800">
-<div>
-	<div class="max-w-7xl mx-auto py-8 px-4">
-		<div class="text-center">
-			<h2 class="text-5xl font-semibold text-white">
-				Simple Trade Plotter
-			</h2>
-			<p class="mt-5 text-xl text-gray-400">Plot your trades on a chart.</p>
-		</div>
-		<form id="plotter-form" class="form my-12">
-			<div class="grid grid-cols-3 gap-4 items-center">
-				<div class="mt-1 border-2 border-gray-600 border-dashed rounded-md px-6 pt-5 pb-6">
-					<label for="data-series" class="block text-sm font-medium pb-4 text-gray-300">
-						Select Data Series <a href="https://github.com/akki-io/trade-plotter/wiki" class="text-underline text-indigo-700" target="_blank">Help?</a>
-					</label>
-					<input type="file"
-						   id="data-series"
-						   accept=".csv"
-						   required
-						   class="shadow-sm block w-full sm:text-sm text-gray-300 border-gray-300 rounded-md"
-					/>
-				</div>
-				<div class="mt-1 border-2 border-gray-600 border-dashed rounded-md px-6 pt-5 pb-6">
-					<label for="my-trades" class="block text-sm font-medium pb-4 text-gray-300">
-						Select Trades <a href="https://github.com/akki-io/trade-plotter/wiki" class="text-underline text-indigo-700"
-										 target="_blank">Help?</a>
-					</label>
-					<input type="file"
-						   id="my-trades"
-						   accept=".csv"
-						   required
-						   class="shadow-sm block w-full sm:text-sm text-gray-300 border-gray-300 rounded-md"
-					/>
-				</div>
-				<div>
-					<span class="rounded-md shadow-sm">
-						<button type="submit"
-								class="inline-flex items-center px-4 py-2 border border-transparent text-base py-6 leading-6 w-full block font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
-							  <svg id="loading-button" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
-								   fill="none"
-								   viewBox="0 0 24 24">
-								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-										stroke-width="4"></circle>
-								<path class="opacity-75" fill="currentColor"
-									  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-							  </svg>
-							  Generate
-						</button>
-					  </span>
-				</div>
-			</div>
-		</form>
-
-		<div class="my-chart-div my-12">
-			<h2 class="text-2xl font-semibold text-white">
-				Your Trades
-			</h2>
-			<div id="my-chart" class="my-12"></div>
-		</div>
-
-		<div class="sample-chart-div my-12">
-			<h2 class="text-2xl font-semibold text-white">
-				Sample Chart
-			</h2>
-			<div id="sample-chart" class="my-12"></div>
-		</div>
-
-	</div>
-</div>
-<script type="text/javascript" src="./js/tailwind-3.0.0.js"></script>
-<script type="text/javascript" src="./js/tailwind-config.js"></script>
-<script type="text/javascript" src="./js/lightweight-charts-3.7.0.js"></script>
-<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="./js/papaparse-5.3.1.min.js"></script>
-<script type="text/javascript" src="./js/sample-dataseries.js"></script>
-<script type="text/javascript" src="./js/sample-trades.js"></script>
-<script type="text/javascript" src="./js/plotter.js"></script>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Simple Trade Plotter</title>
+      <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+      <link href="./css/spin.css"/>
+      <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+      <script type="text/javascript" src="./js/tailwind-3.0.0.js"></script>
+      <script type="text/javascript" src="./js/tailwind-config.js"></script>
+      <script type="text/javascript" src="./js/lightweight-charts-3.7.0.js"></script>
+      <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="./js/papaparse-5.3.1.min.js"></script>
+      <script type="text/javascript" src="./js/sample-dataseries.js"></script>
+      <script type="text/javascript" src="./js/sample-trades.js"></script>
+      <script type="text/javascript" src="./js/plotter.js"></script>
+   </head>
+   <body class="bg-gray-800">
+      <div class="max-w-7xl mx-auto py-8 px-4">
+         <header>
+            <div class="text-center">
+               <h2 class="text-5xl font-semibold text-white">
+                  Simple Trade Plotter
+               </h2>
+               <p class="mt-5 text-xl text-gray-400">Plot your trades on a chart.</p>
+            </div>
+            <div class="max-w-7xl mx-auto py-2 px-4 overflow-hidden">
+               <p class="mt-2 text-center text-sm text-gray-400">
+                  <a href="https://github.com/akki-io/trade-plotter" target="_blank" class="text-indigo-400">Open
+                  source</a> project by Akki Khare. Charts Powered by <a href="https://www.tradingview.com/"
+                     target="_blank" class="text-indigo-400">TradingView.com</a>
+               </p>
+            </div>
+         </header>
+         <form id="plotter-form" class="form my-12">
+            <div class="grid grid-cols-3 gap-4 items-center">
+               <div class="mt-1 border-2 border-gray-600 border-dashed rounded-md px-6 pt-5 pb-6">
+                  <label for="data-series" class="block text-sm font-medium pb-4 text-gray-300">
+                  Select Data Series <a href="https://github.com/akki-io/trade-plotter/wiki"
+                     class="text-underline text-indigo-400" target="_blank">Help?</a>
+                  </label>
+                  <input type="file"
+                     id="data-series"
+                     accept=".csv"
+                     required
+                     class="shadow-sm block w-full sm:text-sm text-gray-300 border-gray-300 rounded-md"
+                     />
+               </div>
+               <div class="mt-1 border-2 border-gray-600 border-dashed rounded-md px-6 pt-5 pb-6">
+                  <label for="my-trades" class="block text-sm font-medium pb-4 text-gray-300">
+                  Select Trades <a href="https://github.com/akki-io/trade-plotter/wiki"
+                     class="text-underline text-indigo-400"
+                     target="_blank">Help?</a>
+                  </label>
+                  <input type="file"
+                     id="my-trades"
+                     accept=".csv"
+                     required
+                     class="shadow-sm block w-full sm:text-sm text-gray-300 border-gray-300 rounded-md"
+                     />
+               </div>
+               <div>
+                  <span class="rounded-md shadow-sm">
+                     <button type="submit"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-base py-6 leading-6 w-full block font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+                        <svg id="loading-button" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24">
+                           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                              stroke-width="4"></circle>
+                           <path class="opacity-75" fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Generate
+                     </button>
+                  </span>
+               </div>
+            </div>
+         </form>
+      </div>
+      <section class="charts">
+         <div class="my-chart-div text-center">
+            <h2 class="text-2xl font-semibold text-white mb-12">
+               Your Trades
+            </h2>
+            <div id="my-chart" class="h-screen w-full"></div>
+         </div>
+         <div class="sample-chart-div text-center">
+            <h2 class="text-2xl font-semibold text-white mb-12">
+               Sample Chart
+            </h2>
+            <div id="sample-chart" class="h-screen w-full"></div>
+         </div>
+      </section>
+   </body>
 </html>
